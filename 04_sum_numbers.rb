@@ -10,10 +10,12 @@
 # Check your solution by running the tests:
 # ruby tests/04_sum_numbers_test.rb
 
-def sum_numbers (numbers)
-  
+def sum_numbers(numbers)
+  numbers.sum
 end
 
+# Need to know how to write a test case for errors??
+#sum_numbers([1, 3, "dog"])
 
 # OPTIONAL:
 # Go to the tests folder and open 04_sum_numbers_test.rb.

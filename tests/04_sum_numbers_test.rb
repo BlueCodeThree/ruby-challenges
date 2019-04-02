@@ -6,5 +6,7 @@ class LargestNumberTest < Test::Unit::TestCase
     assert_equal(3, sum_numbers([1,1,1]))
     assert_equal(117, sum_numbers([5,2,100,0,10]))
     assert_equal(290, sum_numbers([55,23,183,0,29]))
+    assert_equal(108, sum_numbers([4, 8, 15, 16, 23, 42]))
+    assert_equal(0, sum_numbers([]))
   end
 end
