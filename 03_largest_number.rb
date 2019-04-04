@@ -16,7 +16,7 @@
 # 
 # Examples - what if both numbers are equal or are strings?
 
-def largest_number (number_1, number_2)
+def largest_number(number_1, number_2)
   if number_1.is_a? String or number_2.is_a? String
     puts "Oops, this is a string"
   else

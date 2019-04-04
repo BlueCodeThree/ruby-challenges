@@ -13,7 +13,7 @@
 # Example:
 # "hello", ["hi","howdy","hello"] should return true.
 
-def in_array (needle, haystack)
+def in_array(needle, haystack)
   if haystack.index(needle)
     return true
   else
