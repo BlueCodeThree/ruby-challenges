@@ -18,7 +18,8 @@ walk_to_class = 12
 
 time_to_class = drive_to_daycare + daycare_dropoff + drive_to_train + wait_for_train + train_to_central + walk_to_class
 
-puts "To get to class, I drive to daycare, drop off the kids at daycare, drive to the train station, wait for the train, take the train to central station, and walk to class. It takes about #{time_to_class}mins"
+puts "To get to class, I drive to daycare, drop off the kids at daycare, drive to the train station, "
+puts "wait for the train, take the train to central station, and walk to class. It takes about #{time_to_class}mins"
 clear
 
 # PART 2:

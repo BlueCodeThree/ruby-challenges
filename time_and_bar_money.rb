@@ -90,10 +90,10 @@ if cocktails.qty >= 1
     cocktails.receipt
 end
 if beers.qty >= 1
-beers.receipt
+    beers.receipt
 end
 if water.qty >= 1
-water.receipt
+    water.receipt
 end
 
 # Is there a way to change this into a function where it is ok with adding more drinks? ::thinking::
