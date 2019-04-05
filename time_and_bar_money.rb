@@ -21,11 +21,15 @@ class Order
     end
 
     def total_cost
-        '%.2f' % (@qty * (@price - @cost))
+        self.qty * self.price
+    end
+
+    def profit
+        @qty * (@price - @cost)
     end
 
     def receipt
-        puts
+        puts "#{self.drink} x#{self.qty} @ $#{'%.2f' % self.price} each: $#{self.total_cost}"
     end
 
 end
@@ -42,28 +46,35 @@ currently_ordering = true
 
 while currently_ordering
     puts "What would you like to order?"
-    puts "Press (1) for cocktail"
-    puts "Press (2) for beer"
-    puts "Press (3) for water"
+    puts "Press (1) for #{cocktails.drink}s"
+    puts "Press (2) for #{beers.drink}s"
+    puts "Press (3) for #{water.drink}"
     puts "Press (4) to finish ordering"
     new_order = gets.chomp.to_i 
     if new_order == 1
         clear
-        puts "How many cocktails would you like to order?"
-        order_qty = gets.chomp.to_f
+        puts "How many #{cocktails.drink}s would you like to order?"
+        order_qty = gets.chomp.to_i
         cocktails.add_drink(order_qty)
         clear
-        puts "You ordered #{cocktails.qty} cocktail(s)!"
+        puts "You ordered #{cocktails.qty} #{cocktails.drink}(s)!"
         puts
-    # elsif new_order == 2
-    #     order[:beer] += 1
-    #     clear
-    #     puts "You ordered a beer"
-    #     puts
-    # elsif new_order == 3
-    #     order[:water] += 1
-    #     clear
-    #     puts "You ordered a water"
+    elsif new_order == 2
+        clear
+        puts "How many #{beers.drink}s would you like to order?"
+        order_qty = gets.chomp.to_i
+        beers.add_drink(order_qty)
+        clear
+        puts "You ordered #{beers.qty} #{beers.drink}(s)!"
+        puts
+    elsif new_order == 3
+        clear
+        puts "How many #{water.drink}s would you like to order?"
+        order_qty = gets.chomp.to_i
+        water.add_drink(order_qty)
+        clear
+        puts "You ordered #{water.qty} #{water.drink}(s)!"
+        puts
     elsif new_order == 4
         clear
         currently_ordering = false
@@ -74,8 +85,20 @@ while currently_ordering
     end
 end
 
-# puts "You have ordered #{order[:cocktail]} cocktails, #{order[:beer]} beers, and #{order[:water]} waters"
-
 puts "Your Order:"
-puts "#{cocktails.drink} x#{cocktails.qty}: $#{cocktails.total_cost}"
-puts "Order Total: $#{cocktails.total_cost}"
+if cocktails.qty >= 1
+    cocktails.receipt
+end
+if beers.qty >= 1
+beers.receipt
+end
+if water.qty >= 1
+water.receipt
+end
+
+# Is there a way to change this into a function where it is ok with adding more drinks? ::thinking::
+puts "Order Total: $#{'%.2f' % (cocktails.total_cost.to_f + beers.total_cost.to_f + water.total_cost.to_f)}"
+
+puts
+puts
+puts "Order Profit:$#{'%.2f' % (cocktails.profit.to_f + beers.profit.to_f + water.profit.to_f)} "
