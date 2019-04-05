@@ -33,7 +33,7 @@ class Order
 
     # print out for the receipt
     def receipt
-        puts "#{self.drink} x#{self.qty} @ $#{'%.2f' % self.price} each: $#{self.total_cost}"
+        puts "#{self.drink} x#{self.qty} @ $#{'%.2f' % self.price} each: $#{'%.2f' % self.total_cost}"
     end
 
 end
