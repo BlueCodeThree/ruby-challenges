@@ -16,18 +16,22 @@ class Order
         @qty = qty
     end
 
+    # adding a drink to the order
     def add_drink(order_qty)
         @qty += order_qty    
     end
 
+    # calculating the total cost
     def total_cost
         self.qty * self.price
     end
 
+    # calculating the profit
     def profit
         @qty * (@price - @cost)
     end
 
+    # print out for the receipt
     def receipt
         puts "#{self.drink} x#{self.qty} @ $#{'%.2f' % self.price} each: $#{self.total_cost}"
     end
@@ -38,10 +42,12 @@ def clear
     puts "\e[2J\e[f"
 end
 
+# adding the data for the drinks into the Order class
 cocktails = Order.new("cocktail", 22, 8)
 beers = Order.new("beer", 12, 3)
 water = Order.new("water", 6, 0.15)
 
+# putting the orders in
 currently_ordering = true
 
 while currently_ordering
@@ -85,6 +91,7 @@ while currently_ordering
     end
 end
 
+# printing out the total orders, how much it will cost
 puts "Your Order:"
 if cocktails.qty >= 1
     cocktails.receipt

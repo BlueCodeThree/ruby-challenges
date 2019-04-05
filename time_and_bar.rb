@@ -36,9 +36,12 @@ clear
 
 # Print the final drinks order so you know what to make
 
+
+# initial orders
 order = {cocktail: 3, beer: 6, water: 2}
 currently_ordering = true
 
+# adding new orders
 while currently_ordering
     puts "What would you like to order?"
     puts "Press (1) for cocktail"
@@ -70,6 +73,7 @@ while currently_ordering
     end
 end
 
+# total orders
 puts "You have ordered #{order[:cocktail]} cocktails, #{order[:beer]} beers, and #{order[:water]} waters"
 
 # Part Three:
