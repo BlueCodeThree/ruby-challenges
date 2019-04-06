@@ -18,10 +18,24 @@
 # ruby tests/14_included_once_test.rb
 #
 
-def included_once(haystack, needle)
-  haystack & haystack == haystack
-end
 
-def included_once2(haystack, needle)
-  haystack.uniq.count == haystack.count
+# These two pass the tests, but I don't think they answer the question. So I've modified the tests
+# def included_once(haystack, needle)
+#   haystack & haystack == haystack
+# end
+
+# def included_once(haystack, needle)
+#   haystack.uniq.count == haystack.count
+# end
+
+# this one is trying to match the needle and haystack, which the other solutions didn't
+# I've modified the tests so that it actually tests if the needle is in the haystack only once. 
+def included_once(haystack, needle)
+  count = 0
+  for hay in haystack
+    if hay == needle
+      count += 1
+    end
+  end
+  count == 1
 end
