@@ -36,7 +36,7 @@ class Order
         if self.qty >= 1
             puts "#{self.drink} x#{self.qty} @ $#{'%.2f' % self.price} each: $#{'%.2f' % self.total_cost}"
         end
-        end
+    end
 
     # to get how many of each drink
     def new_order
@@ -92,16 +92,8 @@ cocktails.receipt
 beers.receipt
 water.receipt
 
-order_total = cocktails.total_cost.to_f + beers.total_cost.to_f + water.total_cost.to_f
-def separate_comma(order_total)
-    whole, decimal = number.to_s.split(".")
-    whole_with_commas = whole.chars.to_a.reverse.each_slice(3).map(&:join).join(",").reverse
-    [whole_with_commas, decimal].compact.join(".")
-end
-
-puts order_total
 # Is there a way to change this into a function where it is ok with adding more drinks? ::thinking::
-# puts "Order Total: $#{'%.2f' % (cocktails.total_cost.to_f + beers.total_cost.to_f + water.total_cost.to_f)}"
+puts "Order Total: $#{'%.2f' % (cocktails.total_cost.to_f + beers.total_cost.to_f + water.total_cost.to_f)}"
 
 puts
 puts
