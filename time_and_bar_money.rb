@@ -33,7 +33,20 @@ class Order
 
     # print out for the receipt
     def receipt
-        puts "#{self.drink} x#{self.qty} @ $#{'%.2f' % self.price} each: $#{'%.2f' % self.total_cost}"
+        if self.qty >= 1
+            puts "#{self.drink} x#{self.qty} @ $#{'%.2f' % self.price} each: $#{'%.2f' % self.total_cost}"
+        end
+        end
+
+    # to get how many of each drink
+    def new_order
+        clear
+        puts "How many #{self.drink}s would you like to order?"
+        order_qty = gets.chomp.to_i
+        self.add_drink(order_qty)
+        clear
+        puts "You ordered #{self.qty} #{self.drink}(s)!"
+        puts
     end
 
 end
@@ -56,32 +69,14 @@ while currently_ordering
     puts "Press (2) for #{beers.drink}s"
     puts "Press (3) for #{water.drink}"
     puts "Press (4) to finish ordering"
-    new_order = gets.chomp.to_i 
-    if new_order == 1
-        clear
-        puts "How many #{cocktails.drink}s would you like to order?"
-        order_qty = gets.chomp.to_i
-        cocktails.add_drink(order_qty)
-        clear
-        puts "You ordered #{cocktails.qty} #{cocktails.drink}(s)!"
-        puts
-    elsif new_order == 2
-        clear
-        puts "How many #{beers.drink}s would you like to order?"
-        order_qty = gets.chomp.to_i
-        beers.add_drink(order_qty)
-        clear
-        puts "You ordered #{beers.qty} #{beers.drink}(s)!"
-        puts
-    elsif new_order == 3
-        clear
-        puts "How many #{water.drink}s would you like to order?"
-        order_qty = gets.chomp.to_i
-        water.add_drink(order_qty)
-        clear
-        puts "You ordered #{water.qty} #{water.drink}(s)!"
-        puts
-    elsif new_order == 4
+    selection = gets.chomp.to_i 
+    if selection == 1
+        cocktails.new_order
+    elsif selection == 2
+        beers.new_order
+    elsif selection == 3
+        water.new_order
+    elsif selection == 4
         clear
         currently_ordering = false
     else
@@ -93,18 +88,20 @@ end
 
 # printing out the total orders, how much it will cost
 puts "Your Order:"
-if cocktails.qty >= 1
-    cocktails.receipt
-end
-if beers.qty >= 1
-    beers.receipt
-end
-if water.qty >= 1
-    water.receipt
+cocktails.receipt
+beers.receipt
+water.receipt
+
+order_total = cocktails.total_cost.to_f + beers.total_cost.to_f + water.total_cost.to_f
+def separate_comma(order_total)
+    whole, decimal = number.to_s.split(".")
+    whole_with_commas = whole.chars.to_a.reverse.each_slice(3).map(&:join).join(",").reverse
+    [whole_with_commas, decimal].compact.join(".")
 end
 
+puts order_total
 # Is there a way to change this into a function where it is ok with adding more drinks? ::thinking::
-puts "Order Total: $#{'%.2f' % (cocktails.total_cost.to_f + beers.total_cost.to_f + water.total_cost.to_f)}"
+# puts "Order Total: $#{'%.2f' % (cocktails.total_cost.to_f + beers.total_cost.to_f + water.total_cost.to_f)}"
 
 puts
 puts
