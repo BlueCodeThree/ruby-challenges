@@ -12,9 +12,8 @@
 
 def count_letters(string)
   result = {} # You'll need an empty hash to get started!
-  characters = string.split("")
-    for letter in characters
-      if result.has_key? letter
+    for letter in string.split("") 
+        if result.has_key? letter
         result[letter] = result[letter] + 1
       else
         result[letter] = 1
