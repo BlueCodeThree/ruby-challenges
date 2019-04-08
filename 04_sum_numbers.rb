@@ -14,6 +14,15 @@ def sum_numbers(numbers)
   numbers.sum
 end
 
+# I added this to help a class 
+def sum_numbers2(numbers)
+  sum = 0
+  numbers.each do |x|
+    sum = sum + x
+  end
+  return sum
+end
+
 # Need to know how to write a test case for errors??
 #sum_numbers([1, 3, "dog"])
 
