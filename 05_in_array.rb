@@ -11,14 +11,9 @@
 # ruby tests/05_in_array_test.rb
 
 # Example:
-# "hello", ["hi","howdy","hello"] should return true.
-
+    # "hello", ["hi","howdy","hello"] should return true
 def in_array(needle, haystack)
-  if haystack.index(needle)
-    return true
-  else
-    return false
-  end
+  haystack.include?(needle)
 end
 
 # Beast Mode:
@@ -31,3 +26,20 @@ def in_array2(needle, haystack)
   end
   return false
 end
+
+#  Another way of doing it. 
+i = 0
+while i < haystack.length do
+  if haystack[i] == needle
+    return true
+  end
+  i += 1
+end 
+return false
+
+for i in (0..haystack.length - 1)
+  if haystack[i] == needle
+    return true
+  end
+end
+return false
