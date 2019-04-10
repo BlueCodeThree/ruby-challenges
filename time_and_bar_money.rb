@@ -93,7 +93,7 @@ beers.receipt
 water.receipt
 
 # Is there a way to change this into a function where it is ok with adding more drinks? ::thinking::
-puts "Order Total: $#{'%.2f' % (cocktails.total_cost.to_f + beers.total_cost.to_f + water.total_cost.to_f)}"
+puts "Order Total: $#{'%.2f' % (cocktails.total_cost.to_f + beers.total_cost.to_f + water.total_cost.to_f)}" # make this into a method!
 
 puts
 puts

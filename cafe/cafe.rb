@@ -8,15 +8,29 @@
 # 2 scones
 # and
 # 3 teas
-
+orders = {lattes: 6, scones: 2, teas: 3}
 # Write a program that asks the customer for their order. The customer
 # will only order one item.
 #   if they order a latte, add one to the number of lattes you need to make,
 #   if they order a scone, add one to the number of scones you need to serve,
 #   if they order a tea, add one to the number of teas you need to make
+puts "What would you like to order?"
+puts "Press (1) for lattes"
+puts "Press (2) for scones"
+puts "Press (3) for tea"
 
+new_order = gets.chomp.to_i
+
+case new_order
+when 1
+    orders[:lattes] += 1
+when 2
+    orders[:scones] += 1
+when 3
+    orders[:teas] +=1
+end
 # Print the final order so you know what to make.
-
+puts "To make: #{orders}"
 
 # Part 2
 # Lattes sell for $4, and cost $2 to make
