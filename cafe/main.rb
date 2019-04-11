@@ -3,14 +3,14 @@
 #       by Carlie Hamilton
 #  Challenge to get a order for a cafe and print out a receipt          
 # ---------------------------------------------------------------------
-require_relative 'order'
+require_relative 'item'
 
 # initializing some items
 items = [
-    lattes = Order.new("Latte", 4, 2, 6),
-    scones = Order.new("Scone", 5, 3, 2),
-    tea = Order.new("Tea", 3, 0.50, 3),
-    cake = Order.new("Cake", 5, 2)
+    lattes = Item.new("Latte", 4, 2, 6),
+    scones = Item.new("Scone", 5, 3, 2),
+    tea = Item.new("Tea", 3, 0.50, 3),
+    cake = Item.new("Cake", 5, 2)
 ]
 
 # Making a somewhat pretty header
@@ -55,10 +55,7 @@ end
 
 # prints out the total of each item
 puts "Your order:"
-lattes.receipt
-scones.receipt
-tea.receipt
-cake.receipt
+order_receipt(items)
 puts
 
 # gets the order total

@@ -1,5 +1,5 @@
-# Holds the items available to order, calculates total cost and profit for the order
-class Order
+# Holds the items available to order, calculates total cost and profit for the items
+class Item
     attr_accessor :qty
     attr_reader :item_name, :price, :cost
 
@@ -10,7 +10,7 @@ class Order
         @qty = qty
     end
 
-    # gets the amount of drinks a customer would like to order
+    # gets the amount of items a customer would like to order
     def new_order
         clear
         puts "How many #{item_name}s would you like to order?"
@@ -21,9 +21,9 @@ class Order
         puts
     end
 
-    # adds a drink to the order
+    # adds an item to the order
     def add_drink(order_qty)
-        @qty += order_qty
+        return  @qty += order_qty
     end
 
     # prints a reciept
@@ -35,12 +35,19 @@ class Order
 
     # calculates the total cost of the item for the customer
     def total_cost
-        @qty * @price
+        return @qty * @price
     end
 
     # calculates the profit
     def profit
-        @qty * (@price - @cost)
+        return @qty * (@price - @cost)
+    end
+end
+
+# gets the order receipt
+def order_receipt(items)
+    for item in items
+        item.receipt
     end
 end
 
