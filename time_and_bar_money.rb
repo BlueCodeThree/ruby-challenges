@@ -1,4 +1,3 @@
-
 # Part Three:
 # Cocktails sell for $22, and cost $8 to make
 # Beer sell for $12, and cost $3 to pour
