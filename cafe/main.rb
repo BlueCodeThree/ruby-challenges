@@ -3,24 +3,15 @@
 #       by Carlie Hamilton
 #  Challenge to get a order for a cafe and print out a receipt          
 # ---------------------------------------------------------------------
-require_relative 'classes/order'
-require_relative 'classes/item'
+require_relative 'order'
 
-
-# add items to my cafe! - In an array so that more items can easily be added without needing to modify other code in the program
-items = [ 
-    lattes =Item.new("Latte", 4, 2, 6),
-    scones =Item.new("Scone", 5, 3, 2),
-    tea =Item.new("Tea", 3, 0.50, 3),
-    cake =Item.new("Cake", 5, 2)
+# initializing some items
+items = [
+    lattes = Order.new("Latte", 4, 2, 6),
+    scones = Order.new("Scone", 5, 3, 2),
+    tea = Order.new("Tea", 3, 0.50, 3),
+    cake = Order.new("Cake", 5, 2)
 ]
-
-# Adding the orders that have already occured to the current order 
-order = Order.new
-for item in items
-    order.push({item: item.name, price: item.price, cost: item.cost, qty: item.initial_qty})
-end
-p order
 
 # Making a somewhat pretty header
 decorate = "-"
@@ -30,53 +21,57 @@ puts decorate * title.length
 puts title
 puts decorate * title.length
 
-# The main order loop - user orders the drinks they want
+# Main ordering loop - customer chooses what items they want
 currently_ordering = true
 
 while currently_ordering
-    puts "~* MENU *~".center(title.length, " ")
-    for item in items
-        puts item.menu.rjust(title.length*0.63, " ")
-    end
-    puts
     puts "What would you like to order?"
-    puts "** Type in your selection **"
-    puts "Press (f) to finish ordering"
+    puts "Press (1) for #{lattes.item_name}s"
+    puts "Press (2) for #{scones.item_name}s"
+    puts "Press (3) for #{tea.item_name}s"
+    puts "Press (4) for #{cake.item_name}s"
+    puts "Press (5) to finish ordering"
 
-    new_order = gets.chomp.capitalize
+    selection = gets.chomp.to_i
 
-    item_not_found = 0
-
-    for item in items
-        if new_order == item.name
-            clear
-            puts "How many #{item.name}s would you like to order?"
-            order_qty = gets.chomp.to_i
-            for item in order.order
-                if item[:item] == new_order
-                    item[:qty] += order_qty
-                    puts "You have ordered #{item[:qty]} #{item[:item]}(s)"
-                    break
-                end
-            end
-            clear
-            puts ""
-            p order
-        elsif new_order == "F"
-            currently_ordering = false
-        else 
-            item_not_found +=1
-        end
-    end
-    if item_not_found > items.length - 1
+    # adds the item and amount to the order
+    if selection == 1
+        lattes.new_order
+    elsif selection == 2
+        scones.new_order
+    elsif selection == 3
+        tea.new_order
+    elsif selection == 4
+        cake.new_order
+    elsif selection == 5
         clear
-        puts "Ooops, something went wrong"
-        puts "Please type in your selection:"
+        currently_ordering = false
+    else
+        clear
+        puts "Oops, you pressed the wrong button!"
         puts
     end
 end
 
-puts "Total Cost:"
-for item in items
-    item.total_cost()
+# prints out the total of each item
+puts "Your order:"
+lattes.receipt
+scones.receipt
+tea.receipt
+cake.receipt
+puts
+
+# gets the order total
+order_total(items)
+
+# gets the order's profit, for admin use only! We have great security here at Carlie's Cafe!
+puts
+puts
+puts "Are you admin? (y/n)"
+admin = gets.chomp.downcase
+case admin
+when "y", "yes"
+    puts order_profit(items)
+else
+    return
 end
