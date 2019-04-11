@@ -1,13 +1,10 @@
-# This challenge has three parts. Use all you have learned to
-# implement the solution. Use methods to keep your code DRY and
-# clean. Use data structures that are appropriate.
-
-# Part 1
-# You are working at a cafe where you have a current backlog of orders:
-# 6 lattes
-# 2 scones
-# and
-# 3 teas
+# ---------------------------------------------------------------------
+#               Cafe Project
+#       by Carlie Hamilton
+#  Challenge to get a order for a cafe and print out a receipt          
+# ---------------------------------------------------------------------
+require_relative 'class/order'
+require_relative 'class/items'
 
 # Part 2
 # Lattes sell for $4, and cost $2 to make
@@ -39,7 +36,7 @@ class Order
     end
 
     # adding a drink to the order
-    def add_drink(order_qty)
+    def add_item(order_qty)
         @qty += order_qty    
     end
 
