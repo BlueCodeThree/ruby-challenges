@@ -30,3 +30,4 @@
 * 09_vowels
 * 10_unique
 * cafe
+* 11_fizzbuzz
