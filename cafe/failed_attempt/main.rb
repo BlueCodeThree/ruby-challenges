@@ -18,9 +18,8 @@ items = [
 # Adding the orders that have already occured to the current order 
 order = Order.new
 for item in items
-    order.push({item: item.name, price: item.price, cost: item.cost, qty: item.initial_qty})
+    order.push({item: item.name, qty: item.initial_qty})
 end
-p order
 
 # Making a somewhat pretty header
 decorate = "-"
@@ -30,7 +29,7 @@ puts decorate * title.length
 puts title
 puts decorate * title.length
 
-# The main order loop - user orders the drinks they want
+# The main order loop - user orders the items they want
 currently_ordering = true
 
 while currently_ordering
@@ -47,6 +46,7 @@ while currently_ordering
 
     item_not_found = 0
 
+    # searching to see if user input == item name, if so, add to order
     for item in items
         if new_order == item.name
             clear
@@ -55,19 +55,24 @@ while currently_ordering
             for item in order.order
                 if item[:item] == new_order
                     item[:qty] += order_qty
+                    clear
                     puts "You have ordered #{item[:qty]} #{item[:item]}(s)"
+                    puts
                     break
                 end
             end
-            clear
-            puts ""
-            p order
+        
+        # finish ordering
         elsif new_order == "F"
             currently_ordering = false
+        
+        # if it doesn't find the item... count to tell the user to try again
         else 
             item_not_found +=1
         end
     end
+
+    # it goes through the loop, and if it doesn't find an item, it tells the user to try again
     if item_not_found > items.length - 1
         clear
         puts "Ooops, something went wrong"
@@ -76,3 +81,10 @@ while currently_ordering
     end
 end
 
+p order
+# get the order receipt
+for item in order.order
+    if item[:qty] > 1
+        puts "#{item[:item]} x#{item[:qty]} @ $#{item[:price]}each #{instance_variable_get(item[:item].downcase).total_cost(item[:qty])}"
+    end
+end

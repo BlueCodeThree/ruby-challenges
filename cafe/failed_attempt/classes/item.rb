@@ -1,7 +1,9 @@
 require_relative 'order.rb'
 
 class Item
-    attr_reader :name, :initial_qty, :price, :cost
+    attr_reader :name, :price, :cost
+    attr_accessor :initial_qty
+
     def initialize(name, price, cost, initial_qty=0)
         @name = name
         @price = price
@@ -10,7 +12,7 @@ class Item
     end
 
     def menu
-        return "#{name}: $#{price}"
+        return "#{@name}: $#{@price}"
     end
 
     def profit
@@ -19,10 +21,6 @@ class Item
 
     def total_cost(qty)
         return qty * @price
-    end
-
-    def receipt(qty)
-        puts "#{@name} x#{qty} @ $#{'%.2f' % @price} each: $#{'%.2f' % total_cost(qty)}"
     end
 
 end
