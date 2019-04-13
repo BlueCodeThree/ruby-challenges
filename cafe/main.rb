@@ -25,30 +25,43 @@ puts
 currently_ordering = true
 
 while currently_ordering
+    puts "~* MENU *~".center(title.length, " ")
+    for item in items
+        puts item.menu.center(title.length, " ")
+    end
+    puts
     puts "What would you like to order?"
-    puts "Press (1) for #{lattes.item_name}s"
-    puts "Press (2) for #{scones.item_name}s"
-    puts "Press (3) for #{tea.item_name}s"
-    puts "Press (4) for #{cake.item_name}s"
-    puts "Press (5) to finish ordering"
+    puts "** Type in your selection **"
+    puts "Press (f) to finish ordering"
 
-    selection = gets.chomp.to_i
+    selection = gets.chomp.capitalize
+    item_not_found = 0
 
-    # adds the item and amount to the order
-    if selection == 1
-        lattes.new_order
-    elsif selection == 2
-        scones.new_order
-    elsif selection == 3
-        tea.new_order
-    elsif selection == 4
-        cake.new_order
-    elsif selection == 5
+    # searching to see if the user input == the name of the item. 
+    # if so, add it to the order. 
+    # My idea for putting them in an array and using a loop like this is so that
+    # if you add more items you don't have to modify the rest of the code. 
+    for item in items
+        if selection == item.item_name
+            item.new_order
+            break
+        
+        # finish ordering
+        elsif selection == "F"
+            clear
+            currently_ordering = false
+
+        # if it doesn't find the item... this is a count so that it knows to tell the user te try again.
+        else
+            item_not_found += 1
+        end
+    end
+
+    # after it goes through all the items, if it doesn't find an item, it tells the user to try again. 
+    if item_not_found > items.length - 1
         clear
-        currently_ordering = false
-    else
-        clear
-        puts "Oops, you pressed the wrong button!"
+        puts "Ooops, something went wrong"
+        puts "Please type in your selection:"
         puts
     end
 end

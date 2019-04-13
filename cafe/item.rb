@@ -10,6 +10,11 @@ class Item
         @qty = qty
     end
 
+    # get the item inforamtion for the menu
+    def menu
+        return "#{@item_name}: $#{'%.2f' % @price}"
+    end
+
     # gets the amount of items a customer would like to order
     def new_order
         clear
