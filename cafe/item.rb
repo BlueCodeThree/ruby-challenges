@@ -15,14 +15,14 @@ class Item
         clear
         puts "How many #{item_name}s would you like to order?"
         order_qty = gets.chomp.to_i
-        add_drink(order_qty)
+        add_item(order_qty)
         clear
         puts "You ordered #{@qty} #{@item_name}(s)!"
         puts
     end
 
     # adds an item to the order
-    def add_drink(order_qty)
+    def add_item(order_qty)
         return  @qty += order_qty
     end
 
@@ -72,4 +72,9 @@ end
 # handy clear function
 def clear
     puts "\e[2J\e[f"
+end
+
+# make me beautiful - decorating the header - potential to make other things pretty too
+def decorate(pretty, thingy)
+    puts pretty * thingy.length
 end

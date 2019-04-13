@@ -1,6 +1,6 @@
 # ---------------------------------------------------------------------
-#               Cafe Project
-#       by Carlie Hamilton
+#                              Cafe Project
+#                          by Carlie Hamilton
 #  Challenge to get a order for a cafe and print out a receipt          
 # ---------------------------------------------------------------------
 require_relative 'item'
@@ -14,12 +14,12 @@ items = [
 ]
 
 # Making a somewhat pretty header
-decorate = "-"
-title = "| -- Welcome to Carlie's Cafe -- |"
+title = "| --  ~*  Welcome to Carlie's Cafe  *~  -- |"
 clear
-puts decorate * title.length
+decorate("-", title)
 puts title
-puts decorate * title.length
+decorate("-", title)
+puts
 
 # Main ordering loop - customer chooses what items they want
 currently_ordering = true
