@@ -4,6 +4,7 @@
 #  Challenge to get a order for a cafe and print out a receipt          
 # ---------------------------------------------------------------------
 require_relative 'item'
+require_relative 'order'
 
 # initializing some items
 items = [
@@ -23,6 +24,7 @@ puts
 
 # Main ordering loop - customer chooses what items they want
 currently_ordering = true
+this_order = Order.new
 
 while currently_ordering
     puts "~* MENU *~".center(title.length, " ")
@@ -68,11 +70,11 @@ end
 
 # prints out the total of each item
 puts "Your order:"
-order_receipt(items)
+this_order.order_receipt(items)
 puts
 
 # gets the order total
-order_total(items)
+this_order.order_total(items)
 
 # gets the order's profit, for admin use only! We have great security here at Carlie's Cafe!
 puts
@@ -81,7 +83,7 @@ puts "Are you admin? (y/n)"
 admin = gets.chomp.downcase
 case admin
 when "y", "yes"
-    puts order_profit(items)
+    puts this_order.order_profit(items)
 else
     return
 end
