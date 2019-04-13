@@ -19,3 +19,11 @@ def vowels(string)
     end
     return new_string
 end
+
+
+# Update 13-04-2019 - Trying out this regex stuff, and more on one line, with the help of google. 
+def vowels2(string)
+    vowels_array = []
+    string.scan(/[aeiouAEIOU]/)  { |letter| vowels_array.push(letter)}
+    return vowels_array
+end

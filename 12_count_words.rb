@@ -11,12 +11,18 @@
 # Test your solution by running 12_count_words
 
 # Your code here
-puts "Please tell me about your family in five sentences or more."
+# 13-04-2019
+puts "Please tell me about your yourself, your family, and what you like."
 user_input = gets.chomp.downcase
 
 def count_words(user_input)
-    user_input.split(" ")
-
+    # trying out some regex, thanks to the internet
+    words = user_input.gsub(/\W/, ' ').split
+    # learnt about the difference between initializing hash = {} => returns nil, vs Hash.new(0) => returns 0, for adding more numbers
+    frequency = Hash.new(0)
+    # trying this one line stuff...
+    words.each { |word| frequency[word.downcase] += 1 }
+    puts frequency
 end
 
 count_words(user_input)
