@@ -36,6 +36,12 @@ def included_once(haystack, needle)
     if hay == needle
       count += 1
     end
+    if count > 2
+      break
+    end
   end
   count == 1
 end
+
+# 15-04-2019 
+# Added a break so that it doesn't have to go through the whole array if it finds two
