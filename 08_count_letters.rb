@@ -22,7 +22,7 @@
 #   return result # return the hash
 # end
 
-
+# new solution 15 April 2019
 def count_letters(string)
   result = Hash.new(0) # You'll need an empty hash to get started!
     for letter in string.split("") 
