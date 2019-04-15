@@ -36,9 +36,9 @@ def included_once(haystack, needle)
     if hay == needle
       count += 1
     end
-    if count > 2
-      break
-    end
+    # if count > 2
+    #   break
+    # end
   end
   count == 1
 end

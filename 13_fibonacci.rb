@@ -22,7 +22,7 @@
 # Check your solution by running the tests:
 # ruby tests/13_fibonacci_test.rb
 
-def nthFibonacci (n)
+def nthFibonacci(n)
   fibonacci = []
   a = 0
   b = 1
