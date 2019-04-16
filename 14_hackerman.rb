@@ -17,9 +17,27 @@
 
 
 
-# Your code here
+# 16 April 2019 - I don't think this is the most efficient way to do this but it's what I've got now. 
+def hackerman(input1, input2)
+    one = input1.split(" ")
+    two = input2.split(" ")
+    for i in one
+        for x in two
+            if i == x
+                one[one.index(i)] = "HIDDEN"
+            end
+        end
+    end
+    return one * " "
+end
 
+puts "Write a sentence about youself"
+input1 = gets.chomp
+puts "Thanks!"
+puts "Now, write a sentence about your favourite food"
+input2 = gets.chomp
 
+puts hackerman(input1, input2)
 
 # Beast mode:
 # Does your code deal with capital letters? Update your solution so that
