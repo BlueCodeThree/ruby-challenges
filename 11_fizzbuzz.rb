@@ -43,12 +43,13 @@ end
 
 # 16 April 2019 - Trying something new
 def fizz_buzz2
-    output = ""
     (1..100).each do |i|
+        output = ""
         (output << "Fizz") if i % 3 == 0
         (output << "Buzz") if i % 5 == 0
         (output << "#{i}") if output == ""
         puts output
-        output = ""
     end
 end
+
+fizz_buzz2

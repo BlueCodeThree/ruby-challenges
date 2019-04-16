@@ -31,12 +31,22 @@ def hackerman(input1, input2)
     return one * " "
 end
 
-puts "Write a sentence about youself"
-input1 = gets.chomp
+# this doesn't quite work because the gsub (global sub) also changes things inside words, not just the whole word...
+# def hackerman2(input1, input2)
+#     input2.split(" ").each do |word|
+#         input1.gsub!(word, "HIDDEN")
+#     end
+#     return input1
+# end
+
+puts "Write a sentence about youself and something you like"
+input1 = gets.chomp.downcase
+puts
 puts "Thanks!"
 puts "Now, write a sentence about your favourite food"
-input2 = gets.chomp
+input2 = gets.chomp.downcase
 
+puts
 puts hackerman(input1, input2)
 
 # Beast mode:
