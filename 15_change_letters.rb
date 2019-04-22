@@ -17,5 +17,12 @@
 # ruby 15_change_letters.rb
 
 
+# 22 April 2019
+def s_th(string)
+    th_ify = string.chars.map { |x| x == "s" ? 'th' : x }
+    return th_ify.join
+end
 
-# Your code here
+puts "Write a string with lots of words"
+
+puts s_th(gets.chomp)
