@@ -19,6 +19,19 @@
 # Check your solution by running the tests:
 # ruby tests/16_palindrome_test.rb
 
-def palindrome (string)
-  # Your code here
+# 27 April 2019
+def palindrome(string)
+  count = -1
+  string.chars.each do |i|
+    if i != string[count]
+      return false
+    else
+      count -= 1
+    end
+  end
+  return true
+end
+
+def palindrome2(string)
+  return string.reverse == string
 end

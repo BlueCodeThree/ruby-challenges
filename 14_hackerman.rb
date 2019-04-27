@@ -31,19 +31,11 @@ def hackerman(input1, input2)
     return one * " "
 end
 
-# this doesn't quite work because the gsub (global sub) also changes things inside words, not just the whole word...
-# def hackerman2(input1, input2)
-#     input2.split(" ").each do |word|
-#         input1.gsub!(word, "HIDDEN")
-#     end
-#     return input1
-# end
-
 # 27 April 2019
 def hackerman2(input1, input2)
     one = input1.split(" ")
     two = input2.split(" ")
-    one.each { |i| one[one.index(i)]= "HIDDEN" if two.include? i}
+    one.each { |i| one[one.index(i)] = "HIDDEN" if two.include? i}
     return one.join(" ")
 end
 

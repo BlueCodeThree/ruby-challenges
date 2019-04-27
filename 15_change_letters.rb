@@ -23,5 +23,10 @@ def s_th(string)
     return th_ify.join
 end
 
+# 27 April 2019 
+def s_th2(string)
+    return string.gsub("s", "th")
+end
+
 puts "Write a string with lots of words"
-puts s_th(gets.chomp)
+puts s_th2(gets.chomp)
