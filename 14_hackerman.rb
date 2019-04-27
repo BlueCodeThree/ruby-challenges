@@ -39,6 +39,16 @@ end
 #     return input1
 # end
 
+# 27 April 2019
+def hackerman2(input1, input2)
+    one = input1.split(" ")
+    two = input2.split(" ")
+    one.each { |i| one[one.index(i)]= "HIDDEN" if two.include? i}
+    return one.join(" ")
+end
+
+
+# get user input
 puts "Write a sentence about youself and something you like"
 input1 = gets.chomp.downcase
 puts
@@ -47,7 +57,7 @@ puts "Now, write a sentence about your favourite food"
 input2 = gets.chomp.downcase
 
 puts
-puts hackerman(input1, input2)
+puts hackerman2(input1, input2)
 
 # Beast mode:
 # Does your code deal with capital letters? Update your solution so that

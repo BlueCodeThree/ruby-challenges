@@ -24,5 +24,4 @@ def s_th(string)
 end
 
 puts "Write a string with lots of words"
-
 puts s_th(gets.chomp)
