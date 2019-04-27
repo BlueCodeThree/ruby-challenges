@@ -7,6 +7,7 @@ class PalindromeTest < Test::Unit::TestCase
         assert_equal(false, palindrome("dog"))
         assert_equal(true, palindrome("racecar"))
         assert_equal(false, palindrome("hello"))
+        assert_equal(false, palindrome("032130"))
     end
 end
 
@@ -16,5 +17,6 @@ class Palindrome2Test < Test::Unit::TestCase
         assert_equal(false, palindrome2("dog"))
         assert_equal(true, palindrome2("racecar"))
         assert_equal(false, palindrome2("hello"))
+        assert_equal(false, palindrome2("032130"))
     end
 end
