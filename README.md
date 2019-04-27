@@ -36,3 +36,4 @@
 * 14_hackerman
 * 15_change_letters
 * 16_palindrome
+* 17_combine_hashes
