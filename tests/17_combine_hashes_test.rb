@@ -7,5 +7,6 @@ class CombineHashesTest < Test::Unit::TestCase
   end
   def test_combine_hashes_string
     assert_equal({a: "aa", b: "bb", c: "cc"}, combine_hashes({a: "a", b: "b", c: "c"}, {a: "a", b: "b", c: "c"}))
+    assert_equal({a: "ad", b: "be", c: "cf"}, combine_hashes({a: "a", b: "b", c: "c"}, {a: "d", b: "e", c: "f"}))
   end
 end

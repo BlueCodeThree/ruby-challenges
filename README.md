@@ -39,3 +39,4 @@
 * 17_combine_hashes
 * 18_find_errors
 * 19_balanced_number
+* 20_descending_numbers

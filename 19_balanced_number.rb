@@ -45,7 +45,7 @@
 # Explanation:
 # Since, the sum of all digits to the left of the middle digits (10) 
 # and the sum of all digits to the right of the middle digits (20) are equal, then it's not balanced.
-# Note : The middle digit(s) are 02.
+# Note : The middle digit(s) are 02..
 
 # 4 May 2019
 def balanced_num2(number)

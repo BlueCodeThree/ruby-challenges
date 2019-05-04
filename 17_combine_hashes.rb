@@ -25,14 +25,12 @@
 
 # 27 April 2019
 def combine_hashes(hash1, hash2)
-  hash3 = {}
-
   hash1.each do |k, v|
     if k.is_a? String
-      hash3[k] = v * hash1[k]
+      hash1[k] = v * hash2[k]
     else
-      hash3[k] = v + hash2[k]
+      hash1[k] = v + hash2[k]
     end
   end
-  return hash3
+  return hash1
 end
