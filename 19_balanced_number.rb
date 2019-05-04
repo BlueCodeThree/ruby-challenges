@@ -47,26 +47,56 @@
 # and the sum of all digits to the right of the middle digits (20) are equal, then it's not balanced.
 # Note : The middle digit(s) are 02.
 
-def balanced_num(number)
+# 4 May 2019
+def balanced_num2(number)
         number = number.to_s
 
         # is even?
         if number.length % 2 == 0
                 first_half = number.slice(0, number.length/2 - 1).split(//)
                 second_half = number.slice(number.length/2 + 1, number.length).split(//)
-        end
 
         # is odd?
-        if number.length % 2 != 0
+        else
                 first_half = number.slice(0, number.length/2).split(//)
                 second_half = number.slice(number.length/2 + 1, number.length).split(//)
         end
 
-        # calculate balanced
+        # calculate each half
         first_half_sum = 0
         first_half.each { |x| first_half_sum += x.to_i}
         second_half_sum = 0
         second_half.each { |x| second_half_sum += x.to_i}
+
+        # is balanced?
+        if first_half_sum == second_half_sum
+                return "Balanced"
+        else
+                return "Not Balanced"
+        end
+end
+
+# also 4 May 2019
+def balanced_num(number)
+        number = number.to_s.split(//).map{ |x| x.to_i}
+
+        if number.length.even?
+                first_half = number[0, number.length/2 - 1]
+                second_half = number[number.length/2 + 1, number.length]
+
+        # if odd?
+        else
+                first_half = number[0, number.length/2]
+                second_half = number[number.length/2 + 1, number.length]
+        end
+
+        # calculate each half
+        first_half_sum = 0
+        first_half.each { |x| first_half_sum += x}
+        second_half_sum = 0
+        second_half.each { |x| second_half_sum += x}
+
+        # is balanced?
         if first_half_sum == second_half_sum
                 return "Balanced"
         else
