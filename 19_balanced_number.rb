@@ -48,8 +48,28 @@
 # Note : The middle digit(s) are 02.
 
 def balanced_num(number)
+        number = number.to_s
+
         # is even?
-        if number % 2 == 0
-        first_half = number.split(//)
+        if number.length % 2 == 0
+                first_half = number.slice(0, number.length/2 - 1).split(//)
+                second_half = number.slice(number.length/2 + 1, number.length).split(//)
+        end
+
+        # is odd?
+        if number.length % 2 != 0
+                first_half = number.slice(0, number.length/2).split(//)
+                second_half = number.slice(number.length/2 + 1, number.length).split(//)
+        end
+
+        # calculate balanced
+        first_half_sum = 0
+        first_half.each { |x| first_half_sum += x.to_i}
+        second_half_sum = 0
+        second_half.each { |x| second_half_sum += x.to_i}
+        if first_half_sum == second_half_sum
+                return "Balanced"
+        else
+                return "Not Balanced"
         end
 end

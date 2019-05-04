@@ -34,3 +34,18 @@ def nthFibonacci(n)
   end
   return fibonacci[n]
 end
+
+# 1 May 2019 - Solution from the web. This doesn't work with bigger numbers. 
+def nthFibonacci2(n)
+  if n == 0
+    return 0
+  elsif n == 1
+    return 1
+  elsif n == 2
+    return 1
+  else n > 2
+    n = nthFibonacci2(n-1) + nthFibonacci2(n-2)
+  end
+end
+
+puts nthFibonacci(1000)
