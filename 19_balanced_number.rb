@@ -82,24 +82,14 @@ def balanced_num(number)
 
         if number.length.even?
                 first_half = number[0, number.length/2 - 1]
-                second_half = number[number.length/2 + 1, number.length]
 
         # if odd?
         else
                 first_half = number[0, number.length/2]
-                second_half = number[number.length/2 + 1, number.length]
         end
 
-        # calculate each half
-        first_half_sum = 0
-        first_half.each { |x| first_half_sum += x}
-        second_half_sum = 0
-        second_half.each { |x| second_half_sum += x}
+        second_half = number[number.length/2 + 1, number.length]
 
         # is balanced?
-        if first_half_sum == second_half_sum
-                return "Balanced"
-        else
-                return "Not Balanced"
-        end
+        first_half.sum == second_half.sum ? "Balanced" : "Not Balanced"
 end
