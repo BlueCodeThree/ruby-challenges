@@ -14,7 +14,7 @@
 # hash2 = { a: 5, b: 2, c: 14}
 # combine_hashes => { a: 8, b: 7, c: 15 }
 
-# Example: 
+# Example:
 # hash3 = {a: "a", b:"b", c:"c"}
 # hash4 = {a: "a", b:"b", c:"c"}
 # combine_hashes => {a: "aa", b:"bb", c:"cc"}
@@ -26,11 +26,7 @@
 # 27 April 2019
 def combine_hashes(hash1, hash2)
   hash1.each do |k, v|
-    if k.is_a? String
-      hash1[k] = v * hash2[k]
-    else
-      hash1[k] = v + hash2[k]
-    end
+    hash1[k] = v + hash2[k]
   end
   return hash1
 end
