@@ -15,7 +15,7 @@
 #Input: 145263 Output: 654321
 #Input: 1254859723 Output: 9875543221
 
-# edited 11 May 2019
+# edited 11 May 2019    
 def descending_order(n)
     return n.to_s.split(//).map{ |x| x.to_i}.sort.reverse.join
 end

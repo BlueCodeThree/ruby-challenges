@@ -36,6 +36,7 @@ end
 
 # bubble sort
 # swaps the two adjacent numbers
+# adapted from python code
 def sort2(num_array)
     n = num_array.length - 1
     for i in 0..n
