@@ -25,8 +25,6 @@
 
 # 27 April 2019
 def combine_hashes(hash1, hash2)
-  hash1.each do |k, v|
-    hash1[k] = v + hash2[k]
-  end
+  hash1.each { |k, v| hash1[k] = v + hash2[k] }
   return hash1
 end
