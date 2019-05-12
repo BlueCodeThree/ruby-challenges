@@ -33,6 +33,17 @@
 # Expected output: false
 
 def exes_and_ohs(input)
-    # Your code goes here
-    # 
+    letters = input.downcase.split(//)
+
+    # if more than two letters then the test is false
+    return false if letters.uniq.count != 2
+
+    unique_hash = Hash.new(0)
+    letters.each { |letter| unique_hash[letter] += 1}
+
+    unique_hash[letters.uniq[0]] == unique_hash[letters.uniq[1]] ? true : false
 end
+
+
+p exes_and_ohs("ooxx")
+p exes_and_ohs("oOxXxoX")
