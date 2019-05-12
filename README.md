@@ -45,3 +45,6 @@
 * 23_first_non_repeating
 * 24_isogram
 * 25_remove_adjacent_duplicates
+* 26_max_min
+* 27_in_array_strict
+* 28_good_walk
