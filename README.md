@@ -43,3 +43,4 @@
 * 21_sort_numbers
 * 22_exes_ohs
 * 23_first_non_repeating
+* 24_isogram
