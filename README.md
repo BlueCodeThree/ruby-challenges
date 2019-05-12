@@ -44,3 +44,4 @@
 * 22_exes_ohs
 * 23_first_non_repeating
 * 24_isogram
+* 25_remove_adjacent_duplicates

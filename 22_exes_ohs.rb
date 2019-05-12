@@ -32,6 +32,7 @@
 # Example input: "efefy"
 # Expected output: false
 
+# 12 May 2019
 def exes_and_ohs(input)
     letters = input.downcase.split(//)
 

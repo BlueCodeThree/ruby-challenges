@@ -14,6 +14,7 @@
 
 # *E.g.* isogram?("scary") should return true
 
+# 12 May 2019
 def isogram?(input)
     input.chars.uniq.length == input.length ? true : false
 end

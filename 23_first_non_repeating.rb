@@ -25,6 +25,7 @@
 # as it would have to go over every character. Can you return on the first
 # non-repeat, without checking every other letter?
 
+# 12 May 2019
 def first_non_repeating(input)
     i = 1
     input.length.times do
