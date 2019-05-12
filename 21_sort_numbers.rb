@@ -24,7 +24,7 @@
 # Expected output: [2,2,4,5,8]
 
 # 11 May 2019 - My own attempt
-# Doesn't work, it gets rid of two numbers the same
+# Doesn't work, it gets rid of two numbers if they're the same
 def sort1(num_array)
     sorted_array = []
     while num_array.length > 0
@@ -36,7 +36,7 @@ end
 
 # bubble sort
 # swaps the two adjacent numbers
-# adapted from python code
+# adapted from python code - https://www.geeksforgeeks.org/bubble-sort/
 def sort2(num_array)
     n = num_array.length - 1
     for i in 0..n
@@ -49,5 +49,25 @@ def sort2(num_array)
     return num_array
 end
 
+# quick sort
+# has a pivot number and sorts the numbers out from the pivot.
+# copied straight from https://www.youtube.com/watch?v=0xwIYkeLcDQ
+# because I can understand it but couldn't work out how to apply it
+# actually, I did slightly modify the code, so winning?!?!!?
+def sort(num_array)
+    return num_array if num_array.empty?
+    pivot = num_array.pop
+    left = []
+    right = []
+
+    num_array.each do |x|
+        if x < pivot
+            left << x
+        else
+            right << x
+        end
+    end
+    return (sort(left) << pivot << sort(right)).flatten
+end
 
 p sort([2,5,4,8,2])
