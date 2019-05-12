@@ -54,7 +54,7 @@ end
 # copied straight from https://www.youtube.com/watch?v=0xwIYkeLcDQ
 # because I can understand it but couldn't work out how to apply it
 # actually, I did slightly modify the code, so winning?!?!!?
-def sort(num_array)
+def sort2(num_array)
     return num_array if num_array.empty?
     pivot = num_array.pop
     left = []
@@ -68,6 +68,67 @@ def sort(num_array)
         end
     end
     return (sort(left) << pivot << sort(right)).flatten
+end
+
+# insertion sort
+# adapted from the c# :D - https://www.geeksforgeeks.org/insertion-sort/
+def sort3(num_array)
+    for i in 0..num_array.length - 1
+        key = num_array[i]
+        j = i - 1
+
+        # move elements of num_array[0..i-1] that are greater than key,
+        # to one position ahead of their current position
+        while j >= 0 && num_array[j] > key
+            num_array[j + 1] = num_array[j]
+            j -= 1
+        end
+        num_array[j + 1] = key
+    end
+    return num_array
+end
+
+
+# merge sort
+# adapted from python
+def sort(num_array)
+    if num_array.length > 1
+        middle = num_array.length/2
+        left = num_array[0, middle]
+        right = num_array[middle, num_array.length]
+
+        p middle
+        p left
+        p right
+
+        # sort each side
+        sort(left)
+        sort(right)
+
+        i = j = k = 0
+
+        # copy data to left and right
+        while i < left.length && j < right.length
+            if left[i] < right[j]
+                num_array[k] = left[i]
+                i += 1
+            else
+                num_array[k] = right[j]
+                j += 1
+            end
+
+            k += 1
+
+        end
+
+        # checking if any element was left
+        while i < left.length
+            num_array[k] = left[i]
+            i += 1
+            k += 1
+        end
+    end
+    return num_array
 end
 
 p sort([2,5,4,8,2])
