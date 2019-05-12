@@ -89,17 +89,15 @@ def sort3(num_array)
 end
 
 
+# 12 May 2019
+
 # merge sort
-# adapted from python
+# adapted from java - https://www.geeksforgeeks.org/merge-sort/
 def sort(num_array)
     if num_array.length > 1
         middle = num_array.length/2
         left = num_array[0, middle]
         right = num_array[middle, num_array.length]
-
-        p middle
-        p left
-        p right
 
         # sort each side
         sort(left)
@@ -125,6 +123,13 @@ def sort(num_array)
         while i < left.length
             num_array[k] = left[i]
             i += 1
+            k += 1
+        end
+
+        # checking any right
+        while j < right.length
+            num_array[k] = right[j]
+            j += 1
             k += 1
         end
     end
