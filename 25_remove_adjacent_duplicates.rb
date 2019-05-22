@@ -21,8 +21,9 @@ def remove_adjacent_duplicates(input)
     input.length.times do
         if input[i] == input[i-1]
             input.delete_at(i)
+        else
+            i += 1
         end
-        i += 1
     end
     return input.join
 end
