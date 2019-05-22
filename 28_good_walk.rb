@@ -25,6 +25,7 @@
 # rspec uses a convention that it will run any file in a subdirectory called 'spec' that
 # has a file name ending in _spec.rb
 
+# 22 May 2019
 def good_walk(walk)
     walk_hash = Hash.new(0)
     walk.each { |direction| walk_hash[direction] += 1}
