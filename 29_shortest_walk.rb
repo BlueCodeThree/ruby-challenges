@@ -44,7 +44,8 @@
 # The test with the challenge use rspec
 
 # 22 May 2019
-def shortest_walk(walk)
+# This method goes over each in the list to try and find a match. If found, deletes from original list
+def shortest_walk1(walk)
     walk.each do |direction|
         case direction
         when 'NORTH'
@@ -81,4 +82,42 @@ def shortest_walk(walk)
         shortest_walk(walk)
     end
     return walk
+end
+
+
+# also 22 May 2019
+# This method goes over the list only once, and then creates a shorter list to work with.
+def shortest_walk(walk)
+    short_walk = [0, 0]
+    walk.each do |direction|
+        case direction
+        when 'NORTH'
+            short_walk[0] += 1
+        when 'SOUTH'
+            short_walk[0] -= 1
+        when 'EAST'
+            short_walk[1] += 1
+        when 'WEST'
+            short_walk[1] -= 1
+        end
+    end
+
+    # this one has to go first incase it gets deleted
+    if short_walk[1] == 1
+        short_walk[1] = 'EAST'
+    elsif short_walk[1] == -1
+        short_walk[1] = 'WEST'
+    else
+        short_walk.delete_at(1)
+    end
+
+    if short_walk[0] == 1
+        short_walk[0] = 'NORTH'
+    elsif short_walk[0] == -1
+        short_walk[0] = 'SOUTH'
+    else
+        short_walk.delete_at(0)
+    end
+
+    return short_walk
 end
