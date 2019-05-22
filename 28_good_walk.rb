@@ -29,7 +29,6 @@
 def good_walk(walk)
     walk_hash = Hash.new(0)
     walk.each { |direction| walk_hash[direction] += 1}
-    return false if walk_hash[n] + walk_hash[s] + walk_hash[e] + walk_hash[w] != 10
-    walk_hash[n] == walk_hash[s] && walk_hash[e] == walk_hash[w] ? true : false
+    return false if walk_hash['n'] + walk_hash['s'] + walk_hash['e'] + walk_hash['w'] != 10
+    walk_hash['n'] == walk_hash['s'] && walk_hash['e'] == walk_hash['w'] ? true : false
 end
-
