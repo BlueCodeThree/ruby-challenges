@@ -16,7 +16,7 @@
 # Included test uses rspec
 
 # 22 May 2019
-def missing_letter(word)
+def missing_letter2(word)
     alphabet = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
     for letter in alphabet.split("")
         if letter == word[0]
@@ -30,5 +30,12 @@ def missing_letter(word)
             return alphabet[start]
         else start +=1
         end
+    end
+end
+
+# 22 May 2019  - learnt .each_with_index, .map.with_index (have nuanced differences) --  also .next and .succ (mean the same)
+def missing_letter(word)
+    word.each_with_index do |letter, i|
+        return letter.next if word[i + 1] != letter.next
     end
 end
