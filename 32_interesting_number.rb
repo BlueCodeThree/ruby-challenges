@@ -15,6 +15,24 @@
 # When the digits are decrementing, 0 comes after 1:
 # interesting_number(3210) => true
 
+# 27 May 2019
 def interesting_number(number)
-    # your code goes here
+    nums = number.to_s.chars.map(&:to_i)
+
+    # needs to be at least 3 numbers
+    return false if nums.length < 3
+
+    # decrementing
+    return true if nums.reverse == nums.sort
+
+    # for incrementing numbers, 0 at the end after 9 is ok
+    if nums[-1] == 0
+        nums[-1] = 10
+    end
+
+    # incrementing
+    return true if nums == nums.sort
+
+    # if all above are wrong, return false.
+    return false
 end
