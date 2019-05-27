@@ -30,7 +30,7 @@ def is_prime(number)
             return false
         end
     end
-        return true
+    return true
 end
 
 
