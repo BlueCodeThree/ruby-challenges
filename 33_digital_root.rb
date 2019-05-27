@@ -16,8 +16,9 @@
 # Return -1 if any negative argument is provided.
 
 # 27 May 2019
-def digital_root(number)
+def digital_root1(number)
     return -1 if number < 0
+    return number if number < 10
 
     sum = 0
     number.to_s.chars.map(&:to_i).each do |num|
@@ -29,4 +30,11 @@ def digital_root(number)
     else
         return sum
     end
+end
+
+# 27 May 2019
+def digital_root(number)
+    return -1 if number < 0
+    return number if number < 10
+    return digital_root(number.digits.sum)
 end
