@@ -53,3 +53,4 @@
 * 31_missing_letter
 * 32_interesting_number
 * 33_digital_root
+* 34_prime_number
