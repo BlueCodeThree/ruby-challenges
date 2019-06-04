@@ -26,9 +26,7 @@
 # 27 May 2019
 def is_prime(number)
     (2..number-1).to_a.each do |num|
-        if number % num == 0
-            return false
-        end
+        return false if number % num == 0
     end
     return true
 end

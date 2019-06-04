@@ -15,7 +15,7 @@
 # *E.g.* remove_adjacent_duplicates("abcABCabcABC") should return exactly the same string: "abcABCabcABC"
 
 # 12 May 2019
-def remove_adjacent_duplicates(input)
+def remove_adjacent_duplicates1(input)
     input = input.chars
     i = 1
     input.length.times do
@@ -26,4 +26,17 @@ def remove_adjacent_duplicates(input)
         end
     end
     return input.join
+end
+
+# class solution 27 May 2019
+def remove_adjacent_duplicates(input)
+    result = ""
+    last = ""
+    input.chars.each do |letter|
+        if letter != last
+            result += letter
+            last = letter
+        end
+    end
+    return result
 end
