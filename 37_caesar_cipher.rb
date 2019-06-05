@@ -8,9 +8,9 @@
 #
 # c = CaesarCipher.new(5); # creates a CipherHelper with a shift of five
 # c.decode('BFKKQJX') # returns 'WAFFLES'
-# 
+#
 # If the shift pushes beyond the end of the alphabet, start back at 'A'
-# Example: 
+# Example:
 # c = CaesarCipher.new(1)
 # c.encode('ZOO') # returns 'APP'
 #
@@ -18,16 +18,51 @@
 #
 # The shift will always be in range of [1, 26].
 
+# 5 June 2019
 class CaesarCipher
   def initialize(shift)
-    # your code here
+    @alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+    @shift = shift
   end
 
   def encode(string)
-    # your code here
+    new_string = []
+    string.chars.each do |char|
+      if is_char_in_alpha(char) == true
+        place = find_place_in_alphabet(char)
+        if place + @shift > 25
+          place = 25 - (place + @shift)
+        end
+        new_string.push(num_to_alpha(place + @shift))
+      end
+    end
+    return new_string.join
   end
-  
+
   def decode(string)
-    # your code here
+    new_string = []
+    string.chars.each do |char|
+      if is_char_in_alpha(char) == true
+        place = find_place_in_alphabet(char)
+        if place + @shift > 25
+          place = 25 - (place + @shift)
+        end
+        new_string.push(num_to_alpha(place - @shift))
+      end
+    end
+    return new_string.join
   end
+
+  def is_char_in_alpha(c)
+    c =~ /[A-Za-z]/ ? true : false
+  end
+
+  def find_place_in_alphabet(c)
+    return @alphabet.index(c.upcase)
+  end
+
+  def num_to_alpha(num)
+    return @alphabet[num]
+  end
+
 end
