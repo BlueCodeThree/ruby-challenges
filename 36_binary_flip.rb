@@ -1,8 +1,8 @@
 # Task
-# You are given a binary string (a string consisting of only '1' and '0'). 
+# You are given a binary string (a string consisting of only '1' and '0').
 # The only operation that can be performed on it is a Flip operation.
 
-# It flips any binary character ( '0' to '1' and vice versa) 
+# It flips any binary character ( '0' to '1' and vice versa)
 # and all characters to the right of it.
 
 # For example, applying the Flip operation to the 4th character of string "1001010"
@@ -22,7 +22,28 @@
 #      ^^
 #  "0001" -> "0000"
 
+# 5 June 2019
+def flip(string, index)
+    while index < string.length
+        if string[index] == "1"
+            string[index] = "0"
+        else
+            string[index] = "1"
+        end
+        index += 1
+    end
+end
 
 def bin_flip(s)
-    # Your code goes here
+    steps = 0
+    index = 0
+
+    while index < s.length
+        if s[index] == "1"
+            flip(s, index)
+            steps += 1
+        end
+        index +=1
+    end
+    return steps
 end
