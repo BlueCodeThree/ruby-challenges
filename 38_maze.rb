@@ -36,20 +36,45 @@
 
 # Good luck, and stay safe!
 
-# class Maze
-#     def initialize(maze)
-#         @maze = maze
-#     end
-#     def walk(path)
-#         # your code goes here
-#     end
-# end
-
+# 6 June 2019
 class Maze
     def initialize(maze)
-        # your code here
+        @maze = maze
+        @x = 0
+
+        # find starting position
+        @maze.each do |row|
+            @y = 0
+            row.each do |column|
+                if column == 2
+                    return
+                end
+                @y += 1
+            end
+            @x += 1
+        end
     end
+
     def walk(moves)
-       # your code here 
+        moves.each do |move|
+            case move
+            when "N"
+                @x -= 1
+            when "S"
+                @x += 1
+            when "E"
+                @y += 1
+            when "W"
+                @y -= 1
+            end
+
+            case @maze[@x][@y]
+            when 3
+                return "Finish"
+            when 1, nil
+                return "Dead"
+            end
+        end
+        return "Lost"
     end
 end
