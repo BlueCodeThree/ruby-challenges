@@ -46,9 +46,7 @@ class Maze
         @maze.each do |row|
             @y = 0
             row.each do |column|
-                if column == 2
-                    return
-                end
+                return if column == 2
                 @y += 1
             end
             @x += 1

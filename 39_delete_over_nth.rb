@@ -7,6 +7,15 @@
 # delete_over_nth([1,1,1,2,2,2,2],2) => [1,1,2,2]
 # delete_over_nth([23,30,15,23,16],1) => [23,30,15,16]
 
+# 7 June 2019
 def delete_over_nth(list,n)
-    # your code here
+    count_hash = Hash.new(0)
+    new_list = []
+    list.each do |number|
+        count_hash[number] += 1
+        if count_hash[number] <= n
+            new_list.push(number)
+        end
+    end
+    return new_list
 end
