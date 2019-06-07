@@ -27,9 +27,6 @@ def reduce_pyramid(pyramid)
     index += 1
   end
 
-  if new_pyramid.length == 1
-    return new_pyramid[0]
-  else
-    reduce_pyramid(new_pyramid)
-  end
+  reduce_pyramid(new_pyramid)
 end
+
