@@ -1,6 +1,7 @@
 # Ruby Morning Challenges
 
 ## Instructions
+
 1. Fork and clone
 2. Create a link to this repo: <br/>
    `git remote add upstream https://github.com/CoderAcademy-BRI/ruby-challenges`
@@ -60,3 +61,4 @@
 * 38_maze
 * 39_delete_over_nth
 * 40_valid_parentheses
+* 41_number_pyramid
