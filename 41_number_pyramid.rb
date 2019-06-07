@@ -13,6 +13,23 @@
 # reduce_pyramid([3, 5])     ==  8
 # reduce_pyramid([3, 9, 4])  ==  25
 
+# 7 June 2019
 def reduce_pyramid(pyramid)
-  #your code here
+  return 0 if pyramid == []
+  return pyramid[0] if pyramid.length == 1
+
+  new_pyramid = []
+  doit_this_much = pyramid.length - 1
+  index = 1
+
+  doit_this_much.times do
+    new_pyramid.push(pyramid[index] + pyramid[index - 1])
+    index += 1
+  end
+
+  if new_pyramid.length == 1
+    return new_pyramid[0]
+  else
+    reduce_pyramid(new_pyramid)
+  end
 end
