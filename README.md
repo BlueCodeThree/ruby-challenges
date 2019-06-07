@@ -59,3 +59,4 @@
 * 37_caesar_cipher
 * 38_maze
 * 39_delete_over_nth
+* 40_valid_parentheses
