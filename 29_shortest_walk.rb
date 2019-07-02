@@ -121,3 +121,7 @@ def shortest_walk(walk)
 
     return short_walk
 end
+
+# 12 June 2019
+# Problems - if you went, i.e. east east east - doesn't count that
+# Doesn't keep the order of the directions.
