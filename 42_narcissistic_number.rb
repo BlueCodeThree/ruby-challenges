@@ -1,4 +1,4 @@
-# A Narcissistic Number is a number which is the sum of its own digits, each raised to the power of the number of digits in a given base. We will restrict ourselves to decimal (base 10).
+# A Narcissistic Number is a number which is the sum of its own digits, each raised to the power of the number of digits in a given base. We will restrict ourselves to decimal (base 9).
 
 # For example, take 153 (3 digits):
 
@@ -15,5 +15,11 @@
 # To run the test, just run rspec spec/42_narcissistic_number_spec.rb
 
 def narcissistic_number?(number)
-    #your code goes here
+    number_array = number.digits
+    power = number_array.length
+    new_number = 0
+    number_array.each do |num|
+        new_number += num ** power
+    end
+    number == new_number ? true : false
 end
