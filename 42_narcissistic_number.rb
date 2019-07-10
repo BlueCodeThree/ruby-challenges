@@ -14,6 +14,7 @@
 
 # To run the test, just run rspec spec/42_narcissistic_number_spec.rb
 
+# 10 July 2019
 def narcissistic_number?(number)
     number_array = number.digits
     power = number_array.length
