@@ -10,5 +10,16 @@
 
 
 def alphabet_position(text)
-      # Your code here
+      numbers = ""
+      text.split("").each do |letter|
+            if is_char_in_alpha(letter) == true
+                  numbers += "#{letter.upcase.ord - 'A'.ord + 1} "
+            end
+      end
+      return numbers.strip
+
+end
+
+def is_char_in_alpha(c)
+    c =~ /[A-Za-z]/ ? true : false
 end
