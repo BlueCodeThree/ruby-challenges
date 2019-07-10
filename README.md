@@ -63,3 +63,4 @@
 * 40_valid_parentheses
 * 41_number_pyramid
 * 42_narcissistic_number.rb
+* 43_alphabet_position.rb
