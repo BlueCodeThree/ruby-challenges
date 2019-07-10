@@ -62,3 +62,4 @@
 * 39_delete_over_nth
 * 40_valid_parentheses
 * 41_number_pyramid
+* 42_narcissistic_number.rb
